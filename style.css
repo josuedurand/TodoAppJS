@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* :root {
+    --main-bg-color: brown;
+}
+.un {
+    background-color: var(--main-bg-color);
+} */
+
+body {
+    background: #fafafa;
+}
+
+#container {
+    width: 800px;
+    margin: auto;
+}
+
+form {
+    margin-top: 20px;
+}
+#add-task {
+    display: flex;
+    justify-content: space-between;
+}
+#order {
+    display: flex;
+    justify-content: space-around;
+}
+#task-list {
+    display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+}
+
+.task {
+    width: auto;
+}

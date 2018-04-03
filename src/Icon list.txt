@@ -1,0 +1,23 @@
+Calendrier
+https://fontawesome.com/icons/calendar-alt?style=regular
+https://fontawesome.com/icons/calendar-plus?style=regular
+https://fontawesome.com/icons/calendar-times?style=regular
+
+Option
+https://fontawesome.com/icons/caret-down?style=solid
+https://fontawesome.com/icons/caret-up?style=solid
+
+Ajout
+https://fontawesome.com/icons/plus?style=solid
+https://fontawesome.com/icons/plus-circle?style=solid
+https://fontawesome.com/icons/plus-square?style=regular
+https://fontawesome.com/icons/plus-square?style=solid
+
+Checkbox auto
+https://fontawesome.com/icons/square?style=regular
+https://fontawesome.com/icons/check-square?style=regular
+
+Checkbox
+https://fontawesome.com/icons/circle?style=regular
+https://fontawesome.com/icons/check-circle?style=regular
+https://fontawesome.com/icons/times-circle?style=regular

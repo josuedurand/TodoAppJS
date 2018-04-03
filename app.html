@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Import Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>TodoAppJS</title>
+</head>
+
+<body>
+    <div id="container">
+        <form action="" id="add-task">
+            <input type="text" name="add-task" id="add-task-field">
+            <button type="submit" id="add-task-button">Ajouter</button>
+        </form>
+        <form action="" id="order">
+            <button>En cours</button>
+            <button>Terminé</button>
+            <select>
+                <option value="order-manual">Manuel</option>
+                <option value="order-prio">Priorité</option>
+                <option value="order-date">Date</option>
+            </select>
+            <div>
+                <input type="checkbox" name="auto-mode" id="auto-mode">
+                <label for="auto-mode">Mode auto</label>
+            </div>
+        </form>
+        <form action="" id="task-list">
+            <div class="task" id="taskID1">
+                <button><i class="far fa-circle"></i></button>
+                <input type="text" name="task" id="task1" class="task" value="Coder le HTML pour le design de base">
+                <input type="datetime-local" name="task-time" id="task-time">
+                <button><i class="fas fa-caret-down"></i></button>
+            </div>
+            <div class="task" id="taskID2">
+                <button><i class="far fa-circle"></i></button>
+                <input type="text" name="task" id="task2" class="task" value="Coder le HTML pour le design de base">
+                <input type="datetime-local" name="task-time" id="task-time">
+                <button><i class="fas fa-caret-down"></i></button>
+            </div>
+            <div class="task" id="taskID3">
+                <button><i class="far fa-circle"></i></button>
+                <input type="text" name="task" id="task3" class="task" value="Coder le HTML pour le design de base">
+                <input type="datetime-local" name="task-time" id="task-time">
+                <button><i class="fas fa-caret-down"></i></button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
