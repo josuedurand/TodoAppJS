@@ -15,7 +15,8 @@ body {
 }
 
 #container {
-    width: 800px;
+    width: 760px;
+    padding: 0 20px;
     margin: auto;
 }
 
@@ -38,4 +39,12 @@ form {
 
 .task {
     width: auto;
+}
+
+@media screen and (max-width: 800px) {
+    #container {
+        width: calc(100% - 40px);
+        margin: auto;
+        padding: 0 20px;
+    }
 }

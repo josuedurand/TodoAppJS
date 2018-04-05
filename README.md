@@ -1,7 +1,7 @@
 
 # Créé un système minimal de gestion de tâches
 
-## Caracteristiques :
+# Todos :
 
 - Create
 - Read
