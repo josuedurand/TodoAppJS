@@ -8,8 +8,8 @@
 - Mettre a jour
 - Supprimer
 - ordonnée les tâches :
+    > avec de tri auto
     - manuellement : à la souris
     - par priorité (option)
     - par date (option)
-    > avec de tri auto
 - Accéder aux taches "terminées" séparément des "en cous"
