@@ -3,13 +3,13 @@
 
 # Todos :
 
-- [ ] Créer
-- [ ] Lire
+- [x] Créer
+- [x] Lire
 - [ ] Mettre a jour
 - [ ] Supprimer
 - [ ] ordonnée les tâches :
     - [ ] manuellement : à la souris
     - [ ] par priorité (option)
-    - ~~[ ] par date (option)~~ -> cancel
+    - [x] ~~par date (option)~~ -> cancel
     - [ ] tri auto
 - [ ] Accéder aux taches "terminées" séparément des "en cous"
