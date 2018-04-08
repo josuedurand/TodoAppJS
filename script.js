@@ -45,16 +45,6 @@ const saveToLocalStorage = () => { // * good
 }
 
 const importFromLocalStorage = (taskId, taskText) => {
-    // importer depuis le lS
-
-
-    // // * declarer id et text en cours d'ajout
-    // if (taskId == undefined && taskText == undefined) {
-    //     let taskId   = 'task-' + numberOfTasks;
-    //     let taskText = localStorage.getItem(taskId);
-    // }
-
-
 
     var taskListEl = document.getElementById('task-list');
     // Conteneur de la tâche
@@ -104,15 +94,18 @@ const importFromLocalStorage = (taskId, taskText) => {
 
     // Button : Supprimé la tâche
     var buttonEl = document.createElement('button');
-    buttonEl.id = taskId + '-cancel';
+    buttonEl.id = taskId + '-delete';
+    // buttonEl.onclick = deleteTask(taskId);
     currentTask.appendChild(buttonEl);
+
+    // Ajout de l'evenement pour la supprssion de la tache
+    document.getElementById(taskId + '-delete').addEventListener('click', deleteTask(taskId));
 
     // Icon du bouton
     var buttonEl = currentTask.getElementsByTagName('button')[2];
     var iconEl = document.createElement('i');
-    iconEl.className = 'fas fa-caret-down';
+    iconEl.className = 'far fa-times-circle';
     buttonEl.appendChild(iconEl);
-
 }
 
 const createTask = () => {
@@ -129,41 +122,111 @@ const createTask = () => {
     importFromLocalStorage(taskId, taskText);
 }
 
+const updateTask = () => {
+    // recuperer la valeur de la tache modifier
+    // metre en parametre la tache modifier
+    // cree un evenement qui ecouter tout les taches et retourne la valeur au localStorage puis en réinserer dedans
+    let value = document.getElementById()
 
+}
 
-
-// function initialise() {
-
-// }
-
-// ! Corriger
-// const init = () => {
-//     localStorage.forEach(element => {
-//         let ID = localStorage.key(element);
-//         let value = localStorage.getItem(localStorage.key(element))
+// $('#taskList').on("click", "li", function (event) {
+//     self = $(this);
+//     taskID = self.attr('id');
+//     localStorage.removeItem(taskID);
+//     self.slideUp('slow', function () {
+//         self.remove();
 //     });
-// }
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// var i;
 
-// console.log("local storage");
-// for (i = 0; i < localStorage.length; i++)   {
-//     console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-// }
+// });
+
+const deleteTask = (taskId) => {
+    // Supprimer l'entrer du localStorage
+    // suprimmer le la vue
+
+    // var element = document.getElementById(taskId);
+    // element.parentNode.removeChild(element);
+
+        // document.getElementById(taskId).parentNode.removeChild(document.getElementById(taskId));
+        // this.parentNode.removeChild(this).parentNode;
+
+        // todo : suprimmé l'entré dans le localStorage
+
+        localStorage.removeItem(taskId);
+
+    // var elem = document.getElementById("myDiv");
+    // elem.parentNode.removeChild(elem);
+
+    // var parent = document.getElementById("div1");
+    // var child = document.getElementById("p1");
+    // parent.removeChild(child);
+
+    // var elem = document.getElementById("myDiv");
+    // elem.parentNode.removeChild(elem);
+
+    // var parent = document.getElementById("div1");
+    // var child = document.getElementById("p1");
+    // parent.removeChild(child);
+}
 
 
+
+// taskListEl.addEventListener("focus", function( event ) {
+//   event.target.style.background = "pink";
+// }, true);
+// taskListEl.addEventListener("blur", function( event ) {
+//   event.target.style.background = "";
+// }, true);
+
+// Evenements
+// initialise les taches deja créé
 window.addEventListener('load', initialize);
+// permet leur modifications
+
+// permet leur suppressions
+// buttonEl.onclick = deleteTask(taskId);
+
+
+
+// tasktEls.addEventListener("blur", function( evenement ) {
+
+    // modifie la value de l'input
+    // localStorage.setItem(this.parentNode.evenement.target.id, evenement.target.value)
+    // 'task-00-value' => 'task-00'
+
+// }, false);
+
+// * fn de suppression
+// var tasktEls = document.getElementsByClassName('task');
+
+// for (let i = 0; i < tasktEls.length; i++) {
+//     tasktEls[i].onclick = function () {
+
+//         var div = this.parentElement;
+//         div.style.display = "none";
+//     }
+// }
+
+// var i;
+// for (i = 0; i < close.length; i++) {
+//     close[i].onclick = function () {
+//         var div = this.parentElement;
+//         div.style.display = "none";
+//     }
+// }
+
+
+
 
 
 // @done : pour les taches terminé regExpS
 // ou #/ ... /#
 
-// TODO: Read
 // TODO: Update
 // TODO: Delete
-
 
 // support de la touche 'entrer' pour ecrire les taches
 // support natural order for task
 // pouvoir netoyer la liste de toute les entre
     // bouton => fn localSorage.clear() avec un confirm au clic
+// bien commenter

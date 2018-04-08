@@ -39,6 +39,12 @@ form {
 
 .task {
     width: auto;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.task > input {
+    width: 90%;
 }
 
 @media screen and (max-width: 800px) {
