@@ -2,27 +2,28 @@
 /*
 Todo:
 - Cree une fonction qui cree le formulaire de base et verifie si javascipt est activé
-- [x] Créé une fonction qui au demarage de la page => importe dans la page les taches
-- support de la touche 'entrer' pour ecrire les taches
+- [x] Créé une fonction qui au demarage de la page => importe dans la page les tâches
+- support de la touche 'entrer' pour ecrire les tâches
 - support natural order for task
 - pouvoir netoyer la liste de toute les entre
     bouton => fn localSorage.clear() avec un confirm au clic
 -  bien commenter
 
 note:
-@done : pour les taches terminé regExpS
+@done : pour les tâches terminé regExpS
 ou #/ ... /#
 */
 
 
 function initialize () {
 
-    // Definit les references du numeros des taches si inexistant
+    // Définit les références du numéro des tâches si inexistant
     if (localStorage.getItem("numberOfTasks") === null) {
+        localStorage.clear();
         localStorage.setItem("numberOfTasks", 0);
     }
 
-    // Definit taskId et taskText pour recuperer tout les element du local storage sauf numberOfTasks (i = 1 et non 0)
+    // Définit taskId et taskText pour récupérer tout les éléments du local storage sauf numberOfTasks (i = 1 et non 0)
     for (var i = 1; i < localStorage.length; i++) {
 
         var taskId   = localStorage.key(i);
@@ -34,23 +35,23 @@ function initialize () {
 
 function saveToLocalStorage () {
 
-    // Recupere l'entrer utilisateur
+    // Récupère l'entrer utilisateur
     var newTodoText = document.getElementById("add-task-field").value;
 
-    // Si non vide alors ajout la tache
+    // Si non vide alors ajout la tâche
     if (newTodoText !== "") {
 
-        // Recupere et incremente les taches totales
+        // Récupère et incrémente les tâches totales
         var numberOfTasks = Number(localStorage.getItem("numberOfTasks")) + 1;
         var currentID     = "task-" + numberOfTasks;
-        // Puis la met a jour dans le localStorage
+        // Puis la met à jour dans le localStorage
         localStorage.setItem("numberOfTasks", numberOfTasks);
         // Valeur de l'entrer dans l'input
-        // Stockage de la tache dans le localStorage
+        // Stockage de la tâche dans le localStorage
         localStorage.setItem(currentID, newTodoText);
-        // Reinitialise l'entrer
+        // Réinitialise l'entrer
         document.getElementById("add-task-field").value = "";
-        // Affuche la reference de la tache créée dans la console
+        // Affiche la référence de la tâche créée dans la console
         console.log("La tâche " + currentID + " a été créée");
     }
 
@@ -58,7 +59,7 @@ function saveToLocalStorage () {
 
 function importFromLocalStorage (taskId, taskText) {
 
-    // Recupere le form comptenant les taches
+    // Récupère le form comprenant les tâches
     var taskListEl = document.getElementById("task-list");
     // Conteneur de la tâche
     var newTask           = document.createElement("div");
@@ -98,11 +99,13 @@ function importFromLocalStorage (taskId, taskText) {
     inputEl.value = taskText;
     currentTask.appendChild(inputEl);
 
-    // Button : Supprimé la tâche
+    // Button : Supprimer la tâche
     var buttonEl       = document.createElement("button");
     buttonEl.id        = taskId + "-delete";
     buttonEl.className = "delete-task";
     currentTask.appendChild(buttonEl);
+    // * Event pour supprimer la tâche aux cliques du bouton
+    // * document.getElementById(taskId + "-delete").addEventListener('click', deleteTask(taskId));
 
     // Icon du bouton
     var buttonEl     = currentTask.getElementsByTagName("button")[2];
@@ -113,35 +116,35 @@ function importFromLocalStorage (taskId, taskText) {
 
 function createTask () {
 
-    // Store l'entrer dans le localStorage si non vide
+    // Store l'entrer dans le localStorage si non-vide
     saveToLocalStorage();
 
-    // Declare les entrers necessaire a la fonction d'import
+    // Déclare les entrer nécessaire à la fonction d'import
     var numberOfTasks = Number(localStorage.getItem("numberOfTasks"));
     var taskId        = "task-" + numberOfTasks;
     var taskText      = localStorage.getItem(taskId);
 
-    // Puis execute l'import
+    // Puis exécute l'import
     importFromLocalStorage(taskId, taskText);
 }
 
 function updateTask () {
     // todo:
-    // recuperer la valeur de la tache modifier
-    // metre en parametre la tache modifier
-    // cree un evenement qui ecouter tout les taches et retourne la valeur au localStorage puis en réinserer dedans
+    // Récupérer la valeur de la tâche modifier
+    // Mètre en paramètre la tâche modifier
+    // Créer un évènement qui écouter tout les tâches et retourne la valeur au localStorage puis en la réinsère dedans
 }
 
 function deleteTask (taskId) {
     // todo:
-    // recuperer auclick la tache a supprimé
+    // Récupérer au click la tâche a supprimé
     // la retirer du localStorage
-    // actualiser ou supprimé de la page l'element
+    // actualiser ou supprimé de la page l'élément
     localStorage.removeItem(taskId);
 }
 
 // * Evenements
-// Initialise les taches deja créé du localStorage
+// Initialise les tâches déjà créé du localStorage
 window.addEventListener("load", initialize);
 
 // * document.getElementById(taskId + '-delete').onclick = 'deleteTask()';
@@ -149,4 +152,12 @@ var deleteButtons = document.getElementsByClassName("delete-task")
 for (var i = 1; i < deleteButtons.length; i++) {
     deleteButtons[i];
 
+}
+
+for (var i = 1; i < localStorage.length; i++) {
+
+    var taskId   = localStorage.key(i);
+    var taskText = localStorage.getItem(taskId);
+
+    importFromLocalStorage(taskId, taskText);
 }
